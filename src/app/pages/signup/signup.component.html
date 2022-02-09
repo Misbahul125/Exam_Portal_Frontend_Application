@@ -22,7 +22,7 @@
                     <img style="width: 120px; height: 120px;" src="../../../assets/user.png" alt="">
                 </div>
 
-                <h1 class="text-center">Register Here!</h1>
+                <h1 class="text-center">Welcome to Exam Portal !!</h1>
 
                 <!-- {{user | json}} -->
 
@@ -32,24 +32,29 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Username</mat-label>
                         <input 
+                        required
                         [(ngModel)]="user.userName"
                         name="userName"
                         type="text" matInput placeholder="Enter your username">
+                        <mat-hint class="signup_hint">Username should be unique</mat-hint>
                     </mat-form-field> 
 
                     <!--Password field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Password</mat-label>
                         <input 
+                        required
                         [(ngModel)]="user.password"
                         name="password"
                         type="password" matInput placeholder="Enter your password">
+                        <!-- <mat-hint class="signup_hint">Password should contain 1 upper case,1 lower case letter,1 digit and 1 special character('_' , '@' , '!')</mat-hint> -->
                     </mat-form-field>
 
                     <!--Firstname field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>First Name</mat-label>
                         <input 
+                        required
                         [(ngModel)]="user.firstName"
                         name="firstName"
                         type="text" matInput placeholder="Enter your first name">
@@ -59,6 +64,7 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Last Name</mat-label>
                         <input 
+                        required
                         [(ngModel)]="user.lastName"
                         name="lastName"
                         type="text" matInput placeholder="Enter your last name">
@@ -68,6 +74,7 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Email</mat-label>
                         <input 
+                        required
                         [(ngModel)]="user.emailId"
                         name="emailId"
                         type="email" matInput placeholder="Enter your email">
@@ -77,6 +84,7 @@
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Contact Numnber</mat-label>
                         <input 
+                        required
                         [(ngModel)]="user.contactNumber"
                         name="contactNumber"
                         type="number" matInput placeholder="Enter your contact number">

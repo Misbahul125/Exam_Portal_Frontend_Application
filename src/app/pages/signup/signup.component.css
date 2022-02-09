@@ -1,3 +1,8 @@
 .full-width{
     width: 100%;
 }
+.signup_hint{
+    font-weight: bold;
+    font-size: 10px;
+    color: blue;
+}
