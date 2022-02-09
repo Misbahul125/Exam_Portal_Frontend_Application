@@ -24,46 +24,66 @@
 
                 <h1 class="text-center">Register Here!</h1>
 
-                <form>
+                <!-- {{user | json}} -->
+
+                <form (ngSubmit)="userSignup()">
 
                     <!--Username field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Username</mat-label>
-                        <input type="text" matInput placeholder="Enter your username">
+                        <input 
+                        [(ngModel)]="user.userName"
+                        name="userName"
+                        type="text" matInput placeholder="Enter your username">
                     </mat-form-field> 
 
                     <!--Password field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Password</mat-label>
-                        <input type="password" matInput placeholder="Enter your password">
+                        <input 
+                        [(ngModel)]="user.password"
+                        name="password"
+                        type="password" matInput placeholder="Enter your password">
                     </mat-form-field>
 
                     <!--Firstname field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>First Name</mat-label>
-                        <input type="text" matInput placeholder="Enter your first name">
+                        <input 
+                        [(ngModel)]="user.firstName"
+                        name="firstName"
+                        type="text" matInput placeholder="Enter your first name">
                     </mat-form-field>
 
                     <!--Lastname field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Last Name</mat-label>
-                        <input type="text" matInput placeholder="Enter your last name">
+                        <input 
+                        [(ngModel)]="user.lastName"
+                        name="lastName"
+                        type="text" matInput placeholder="Enter your last name">
                     </mat-form-field>
 
                     <!--Email field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Email</mat-label>
-                        <input type="email" matInput placeholder="Enter your email">
+                        <input 
+                        [(ngModel)]="user.emailId"
+                        name="emailId"
+                        type="email" matInput placeholder="Enter your email">
                     </mat-form-field>
 
                     <!--Contactno field-->
                     <mat-form-field class="full-width" appearance="outline">
                         <mat-label>Contact Numnber</mat-label>
-                        <input type="number" matInput placeholder="Enter your contact number">
+                        <input 
+                        [(ngModel)]="user.contactNumber"
+                        name="contactNumber"
+                        type="number" matInput placeholder="Enter your contact number">
                     </mat-form-field>
 
                     <div class="container text-center">
-                        <button mat-raised-button color="primary">SignUp</button>
+                        <button type="submit" mat-raised-button color="primary">SignUp</button>
                         <button style="margin-left: 20px;" mat-raised-button>LogIn</button>
                     </div>
 
