@@ -1,1 +1,52 @@
-<p>login works!</p>
+<div class="bootstrap-wrapper">
+
+    <div class="container">
+
+        <div class="row margin-top-20">
+
+            <div class="col-md-6 offset-md-3">
+
+                <mat-card>
+
+                    <div class="container text-center">
+                        <img style="width: 120px; height: 120px;" src="../../../assets/user.png" alt="">
+                    </div>
+    
+                    <h1 class="text-center">LOGIN TO EXAM PORTAL !!</h1>
+    
+                    <!-- {{user | json}} -->
+    
+                    <form>
+    
+                        <!--Username field-->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Username</mat-label>
+                            <input 
+                            required
+                            name="userName"
+                            type="text" matInput placeholder="Enter valid username">
+                            <!-- <mat-hint class="signup_hint">Username should be unique</mat-hint> -->
+                        </mat-form-field> 
+    
+                        <!--Password field-->
+                        <mat-form-field class="full-width" appearance="outline">
+                            <mat-label>Password</mat-label>
+                            <input 
+                            required
+                            name="password"
+                            type="password" matInput placeholder="Enter valid password">
+                            <!-- <mat-hint class="signup_hint">Password should contain 1 upper case,1 lower case letter,1 digit and 1 special character('_' , '@' , '!')</mat-hint> -->
+                        </mat-form-field>    
+    
+                        <div class="container text-center">
+                            <button style="margin-left: 20px;" mat-raised-button color="primary">LogIn</button>
+                        </div>
+    
+                    </form>
+
+                </mat-card>
+
+            </div>
+        </div>
+    </div>
+</div>
