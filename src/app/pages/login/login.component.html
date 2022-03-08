@@ -16,13 +16,15 @@
     
                     <!-- {{user | json}} -->
     
-                    <form>
+                    <!-- {{loginData | json}} -->
+                    <form (ngSubmit)="userLogin()">
     
                         <!--Username field-->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Username</mat-label>
                             <input 
                             required
+                            [(ngModel)]="loginData.username"
                             name="userName"
                             type="text" matInput placeholder="Enter valid username">
                             <!-- <mat-hint class="signup_hint">Username should be unique</mat-hint> -->
@@ -33,13 +35,14 @@
                             <mat-label>Password</mat-label>
                             <input 
                             required
+                            [(ngModel)]="loginData.password"
                             name="password"
                             type="password" matInput placeholder="Enter valid password">
                             <!-- <mat-hint class="signup_hint">Password should contain 1 upper case,1 lower case letter,1 digit and 1 special character('_' , '@' , '!')</mat-hint> -->
                         </mat-form-field>    
     
                         <div class="container text-center">
-                            <button style="margin-left: 20px;" mat-raised-button color="primary">LogIn</button>
+                            <button style="margin-left: 20px;" mat-raised-button color="primary" type="submit">LogIn</button>
                             <a [routerLink]="'/signup'" style="margin-left: 20px;" mat-raised-button>SignUp</a>
                         </div>
     

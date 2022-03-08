@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
 
   userSignup() {
 
-    if(this.user.userName == '' || this.user.userName == null) {
+    if(this.user.userName.trim() == '' || this.user.userName == null) {
       //alert('Username cannot be empty!');
       this.matSnackBar.open('Username is required !!' , 'OK' , {
         duration: 3000,
@@ -42,7 +42,7 @@ export class SignupComponent implements OnInit {
       //check username is unique or not
     }
 
-    if(this.user.password == '' || this.user.password == null) {
+    if(this.user.password.trim() == '' || this.user.password == null) {
       //alert('Password cannot be empty!');
       this.matSnackBar.open('Password cannot be empty !!' , 'OK' , {
         duration: 3000,
@@ -56,7 +56,7 @@ export class SignupComponent implements OnInit {
       //if((this.user.password.))
     }
 
-    if(this.user.firstName == '' || this.user.firstName == null) {
+    if(this.user.firstName.trim() == '' || this.user.firstName == null) {
       //alert('First Name cannot be empty!');
       this.matSnackBar.open('First Name is required !!' , 'OK' , {
         duration: 3000,
@@ -66,7 +66,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    if(this.user.lastName == '' || this.user.lastName == null) {
+    if(this.user.lastName.trim() == '' || this.user.lastName == null) {
       //alert('Lat Name cannot be empty!');
       this.matSnackBar.open('Last Name is required !!' , 'OK' , {
         duration: 3000,
@@ -76,7 +76,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    if(this.user.emailId == '' || this.user.emailId == null) {
+    if(this.user.emailId.trim() == '' || this.user.emailId == null) {
       //alert('Email cannot be empty!');
       this.matSnackBar.open('Email is required !!' , 'OK' , {
         duration: 3000,
@@ -90,7 +90,7 @@ export class SignupComponent implements OnInit {
 
     }
 
-    if(this.user.contactNumber == '' || this.user.contactNumber == null) {
+    if(this.user.contactNumber.trim() == '' || this.user.contactNumber == null) {
       //alert('Contact Number cannot be empty!');
       this.matSnackBar.open('Contact Number is required !!' , 'OK' , {
         duration: 3000,
