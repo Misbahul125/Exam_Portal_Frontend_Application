@@ -90,7 +90,7 @@ export class SignupComponent implements OnInit {
 
     }
 
-    if(this.user.contactNumber.trim() == '' || this.user.contactNumber == null) {
+    if(this.user.contactNumber.toString().trim() == '' || this.user.contactNumber == null) {
       //alert('Contact Number cannot be empty!');
       this.matSnackBar.open('Contact Number is required !!' , 'OK' , {
         duration: 3000,

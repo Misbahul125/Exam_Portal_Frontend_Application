@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 import baseUrl from './helper';
 
 @Injectable({
@@ -7,22 +8,27 @@ import baseUrl from './helper';
 })
 export class LoginService {
 
+  public loginStatusSubject = new Subject<boolean>();
+
   constructor(
     private http: HttpClient
   ) { }
 
+  //login-3
   public getCurrentUser() {
     return this.http.get(`${baseUrl}/current-user`);
   }
 
+  //initiate login-1
   public generateToken(loginData: any) {
 
     return this.http.post(`${baseUrl}/generate-token` , loginData);
   }
 
-  //save token in local storage
+  //save token in local storage, login-2
   public saveToken(token: any) {
     localStorage.setItem("token" , token);
+    // this.loginStatusSubject.next(true);
     return true;
   }
 
@@ -37,19 +43,11 @@ export class LoginService {
     }
   }
 
-  //logout
-  public logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user")
-    window.location.reload();
-    return true;
-  }
-
   public getToken() {
     return localStorage.getItem('token');
   }
 
-  //save user details in local storage
+  //save user details in local storage, login-4
   public setUser(user: any) {
     localStorage.setItem('user' , JSON.stringify(user))
   }
@@ -66,10 +64,18 @@ export class LoginService {
     }
   }
 
-  //get user role
+  //get user role,login-5
   public getUserRole() {
     let user = this.getUser();
     return user.authorities[0].authority;
+  }
+
+  
+  //logout
+  public logout() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user")
+    return true;
   }
   
 }
