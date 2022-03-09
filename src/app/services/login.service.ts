@@ -11,6 +11,10 @@ export class LoginService {
     private http: HttpClient
   ) { }
 
+  public getCurrentUser() {
+    return this.http.get(`${baseUrl}/current-user`);
+  }
+
   public generateToken(loginData: any) {
 
     return this.http.post(`${baseUrl}/generate-token` , loginData);
@@ -37,6 +41,7 @@ export class LoginService {
   public logout() {
     localStorage.removeItem("token");
     localStorage.removeItem("user")
+    window.location.reload();
     return true;
   }
 

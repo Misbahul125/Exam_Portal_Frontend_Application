@@ -9,15 +9,31 @@
     <span class="example-spacer"></span>
 
     <a 
+    *ngIf="!loginService.isLoggedIn()"
     [routerLink]="'/login'"
     mat-icon-button class="example-icon favorite-icon margin-right-20" aria-label="Example icon-button with heart icon">
       LogIn
     </a>
 
     <a
+    *ngIf="!loginService.isLoggedIn()"
     [routerLink]="'/signup'"
     mat-icon-button class="example-icon margin-right-20" aria-label="Example icon-button with share icon">
       SignUp
+    </a>
+
+    <button
+    *ngIf="loginService.isLoggedIn()"
+    style="margin-right: 50px;"
+    mat-button class="example-icon" aria-label="Example icon-button with share icon">
+      {{ loginService.getUser().username }}
+    </button>
+
+    <a
+    (click) = "logout()"
+    *ngIf="loginService.isLoggedIn()"
+    mat-icon-button class="example-icon margin-right-20" aria-label="Example icon-button with share icon">
+      Logout
     </a>
 
   </mat-toolbar>

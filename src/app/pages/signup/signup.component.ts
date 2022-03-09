@@ -16,7 +16,7 @@ export class SignupComponent implements OnInit {
     ) { }
 
   public user= {
-    userName: '',
+    username: '',
     password: '',
     firstName: '',
     lastName: '',
@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
 
   userSignup() {
 
-    if(this.user.userName.trim() == '' || this.user.userName == null) {
+    if(this.user.username.trim() == '' || this.user.username == null) {
       //alert('Username cannot be empty!');
       this.matSnackBar.open('Username is required !!' , 'OK' , {
         duration: 3000,

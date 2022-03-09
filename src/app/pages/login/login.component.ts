@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -17,6 +18,7 @@ export class LoginComponent implements OnInit {
   constructor(
     private matSnackBar: MatSnackBar,
     private loginService: LoginService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -59,10 +61,47 @@ export class LoginComponent implements OnInit {
       (data: any) => {
         console.log("Access token generated");
         console.log(data);
+
+        //save generated token in local storage
+        this.loginService.saveToken(data.token);
+
+        this.loginService.getCurrentUser().subscribe(
+          (user: any) => {
+            console.log("Current user");
+            console.log(user);
+
+            //save user details in local storage
+            this.loginService.setUser(user)
+
+            //check if user is admin/normal
+            if(this.loginService.getUserRole() == 'ADMIN') {
+              // window.location.href = '/admin-dashboard';
+              this.router.navigate(['admin-dashboard']);
+            }
+            else if(this.loginService.getUserRole() == 'NORMAL') {
+              // window.location.href = '/user-dashboard';
+              this.router.navigate(['user-dashboard']);
+            }
+            else {
+              this.loginService.logout();
+            }
+
+          },
+          (error) => {
+            console.log("Error getting current user !!");
+            console.log(error);
+          }
+        );
       },
       (error) => {
         console.log("Error generating token !!");
         console.log(error);
+
+        this.matSnackBar.open('Invalid credentials  !!' , 'OK' , {
+          duration: 3000,
+          verticalPosition: 'bottom',
+          horizontalPosition: 'center',
+        });
       }
     );
 

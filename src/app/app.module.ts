@@ -20,6 +20,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { authInterceptorProviders } from './services/auth.interceptor';
+import { AdminDashboardComponent } from './pages/admin-user/dashboard/admin-dashboard/admin-dashboard.component';
+import { NormalDashboardComponent } from './pages/normal-user/normal-dashboard/normal-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { HomeComponent } from './pages/home/home.component';
     FooterComponent,
     SignupComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    AdminDashboardComponent,
+    NormalDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +49,7 @@ import { HomeComponent } from './pages/home/home.component';
     MatIconModule,
     MatToolbarModule,
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
