@@ -63,20 +63,20 @@
                         <!--Email field-->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Email</mat-label>
-                            <input required [(ngModel)]="user.emailId" name="emailId" type="email" matInput
+                            <input required [(ngModel)]="user.email" name="email" type="email" matInput
                                 placeholder="Enter your email">
                         </mat-form-field>
 
-                        <!--Contactno field-->
+                        <!--Phone field-->
                         <mat-form-field class="full-width" appearance="outline">
                             <mat-label>Contact Numnber</mat-label>
-                            <input required [(ngModel)]="user.contactNumber" name="contactNumber" type="number" matInput
+                            <input required [(ngModel)]="user.phone" name="phone" type="number" matInput
                                 placeholder="Enter your contact number">
                         </mat-form-field>
 
                         <div class="container text-center">
                             <button type="submit" mat-raised-button color="primary">SignUp</button>
-                            <a [routerLink]="'/login'" style="margin-left: 20px;" mat-raised-button>LogIn</a>
+                            <a [routerLink]="'/login'" class="margin-left-20" mat-raised-button>LogIn</a>
                         </div>
 
                     </form>

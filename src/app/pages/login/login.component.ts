@@ -99,7 +99,7 @@ export class LoginComponent implements OnInit {
         console.log("Error generating token !!");
         console.log(error);
 
-        this.matSnackBar.open('Invalid credentials  !!' , 'OK' , {
+        this.matSnackBar.open('Error generating token !!' , 'OK' , {
           duration: 3000,
           verticalPosition: 'bottom',
           horizontalPosition: 'center',

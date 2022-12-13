@@ -20,8 +20,8 @@ export class SignupComponent implements OnInit {
     password: '',
     firstName: '',
     lastName: '',
-    emailId: '',
-    contactNumber: '',
+    email: '',
+    phone: '',
   };
 
   ngOnInit(): void {
@@ -76,7 +76,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    if(this.user.emailId.trim() == '' || this.user.emailId == null) {
+    if(this.user.email.trim() == '' || this.user.email == null) {
       //alert('Email cannot be empty!');
       this.matSnackBar.open('Email is required !!' , 'OK' , {
         duration: 3000,
@@ -90,7 +90,7 @@ export class SignupComponent implements OnInit {
 
     }
 
-    if(this.user.contactNumber.toString().trim() == '' || this.user.contactNumber == null) {
+    if(this.user.phone.toString().trim() == '' || this.user.phone == null) {
       //alert('Contact Number cannot be empty!');
       this.matSnackBar.open('Contact Number is required !!' , 'OK' , {
         duration: 3000,
@@ -117,7 +117,7 @@ export class SignupComponent implements OnInit {
         //   horizontalPosition: 'center',
         // });
 
-        Swal.fire('SignUp Successfull !!' , 'You have registered successfully. Your User ID is : '+data.userId , 'success');
+        Swal.fire('SignUp Successfull !!' , 'You have registered successfully. Your User ID is : '+data.id , 'success');
       },
       (error) => {
         console.log(error);
@@ -127,7 +127,7 @@ export class SignupComponent implements OnInit {
         //   verticalPosition: 'bottom',
         //   horizontalPosition: 'center',
         // });
-
+        
         Swal.fire('Error' , 'Oops! Something went wrong. Please try again later.' , 'error');
       }
     );
