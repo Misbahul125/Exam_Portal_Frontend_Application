@@ -15,6 +15,8 @@ import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -30,6 +32,7 @@ import { WelcomeComponent } from './pages/admin-user/welcome/welcome.component';
 import { ViewCategoriesComponent } from './pages/admin-user/view-categories/view-categories.component';
 import { AddCategoryComponent } from './pages/admin-user/add-category/add-category.component';
 import { ViewQuizzesComponent } from './pages/admin-user/view-quizzes/view-quizzes.component';
+import { AddQuizComponent } from './pages/admin-user/add-quiz/add-quiz.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,8 @@ import { ViewQuizzesComponent } from './pages/admin-user/view-quizzes/view-quizz
     WelcomeComponent,
     ViewCategoriesComponent,
     AddCategoryComponent,
-    ViewQuizzesComponent
+    ViewQuizzesComponent,
+    AddQuizComponent
   ],
   imports: [
     BrowserModule,
@@ -62,6 +66,8 @@ import { ViewQuizzesComponent } from './pages/admin-user/view-quizzes/view-quizz
     MatIconModule,
     MatToolbarModule,
     MatListModule,
+    MatSlideToggleModule,
+    MatSelectModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
