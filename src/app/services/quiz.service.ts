@@ -17,4 +17,8 @@ public getQuizzes() {
   return this.httpClient.get(`${baseUrl}/quiz/`);
 }
 
+public deleteQuiz(qId: number) {
+  return this.httpClient.delete(`${baseUrl}/quiz/${qId}`);
+}
+
 }
