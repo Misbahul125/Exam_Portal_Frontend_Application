@@ -34,12 +34,12 @@ export class LoginService {
 
   //function to check user is logged in or not
   public isLoggedIn() {
-    let tokenStr = localStorage.getItem("token");
-    if(tokenStr != undefined && tokenStr != '' && tokenStr != null) {
-      return true;
+    let tokenStr = this.getToken();
+    if(tokenStr == undefined || tokenStr == '' || tokenStr == null) {
+      return false;
     }
     else {
-      return false;
+      return true;
     }
   }
 
@@ -74,7 +74,7 @@ export class LoginService {
   //logout
   public logout() {
     localStorage.removeItem("token");
-    localStorage.removeItem("user")
+    localStorage.removeItem("user");
     return true;
   }
   

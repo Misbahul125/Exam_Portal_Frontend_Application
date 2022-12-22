@@ -23,7 +23,8 @@
     </a>
 
     <button
-    *ngIf="loginService.isLoggedIn() && user"
+    *ngIf="isLoggedIn && user"
+    routerLink="/admin/profile"
     style="margin-right: 50px;"
     mat-button class="example-icon" aria-label="Example icon-button with share icon">
       {{ user.username }}
@@ -31,7 +32,7 @@
 
     <a
     (click) = "logout()"
-    *ngIf="isLoggedIn"
+    *ngIf="isLoggedIn && user"
     mat-icon-button class="example-icon margin-right-20" aria-label="Example icon-button with share icon">
       Logout
     </a>

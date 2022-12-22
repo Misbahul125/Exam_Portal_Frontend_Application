@@ -14,6 +14,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatListModule} from '@angular/material/list';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -23,6 +24,12 @@ import { HomeComponent } from './pages/home/home.component';
 import { authInterceptorProviders } from './services/auth.interceptor';
 import { AdminDashboardComponent } from './pages/admin-user/dashboard/admin-dashboard/admin-dashboard.component';
 import { NormalDashboardComponent } from './pages/normal-user/normal-dashboard/normal-dashboard.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { SidebarComponent } from './pages/admin-user/sidebar/sidebar.component';
+import { WelcomeComponent } from './pages/admin-user/welcome/welcome.component';
+import { ViewCategoriesComponent } from './pages/admin-user/view-categories/view-categories.component';
+import { AddCategoryComponent } from './pages/admin-user/add-category/add-category.component';
+import { ViewQuizzesComponent } from './pages/admin-user/view-quizzes/view-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +40,13 @@ import { NormalDashboardComponent } from './pages/normal-user/normal-dashboard/n
     LoginComponent,
     HomeComponent,
     AdminDashboardComponent,
-    NormalDashboardComponent
+    NormalDashboardComponent,
+    ProfileComponent,
+    SidebarComponent,
+    WelcomeComponent,
+    ViewCategoriesComponent,
+    AddCategoryComponent,
+    ViewQuizzesComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +61,7 @@ import { NormalDashboardComponent } from './pages/normal-user/normal-dashboard/n
     MatCardModule,
     MatIconModule,
     MatToolbarModule,
+    MatListModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

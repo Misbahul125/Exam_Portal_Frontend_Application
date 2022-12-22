@@ -67,21 +67,22 @@ export class LoginComponent implements OnInit {
 
         this.loginService.getCurrentUser().subscribe(
           (user: any) => {
+            //save user details in local storage
+            this.loginService.setUser(user);
+
             console.log("Current user");
             console.log(user);
 
-            //save user details in local storage
-            this.loginService.setUser(user)
 
             //check if user is admin/normal
             if(this.loginService.getUserRole() == 'ADMIN') {
-              // window.location.href = '/admin-dashboard';
-              this.router.navigate(['admin-dashboard']);
+              // window.location.href = '/admin';
+              this.router.navigate(['admin']);
               this.loginService.loginStatusSubject.next(true);
             }
             else if(this.loginService.getUserRole() == 'NORMAL') {
-              // window.location.href = '/user-dashboard';
-              this.router.navigate(['user-dashboard']);
+              // window.location.href = '/user';
+              this.router.navigate(['user']);
               this.loginService.loginStatusSubject.next(true);
             }
             else {

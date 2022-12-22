@@ -26,11 +26,9 @@ export class NormalGuard implements CanActivate {
         return true;
       }
 
-      this.router.navigate(['login']);
+      this.router.navigate(['admin']);
       return false;
-
-
-    return true;
+      
   }
   
 }

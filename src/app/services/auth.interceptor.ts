@@ -11,6 +11,8 @@ export class AuthInterceptor implements HttpInterceptor
     ) {}
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         
+        //add the JWT token to every api header before sending request
+
         let authRequest = req
 
         const TOKEN = this.loginService.getToken();

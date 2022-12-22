@@ -1,0 +1,71 @@
+<mat-card *ngIf="user">
+
+    <h1>Your Profile Details</h1>
+
+    <mat-card-content>
+
+        <div class="bootstrap-wrapper">
+
+            <div class="container">
+
+                <div class="container text-center">
+
+                    <img class="profile-image" src="../../../assets/images/user.png" alt="">
+
+                    <h1 class="margin-top-20">{{user.firstName}} {{user.lastName}}</h1>
+
+                </div>
+
+                <div class="row">
+
+                    <div class="col-md-10 offset-md-1">
+
+                        <!-- table details -->
+
+                        <table class="table text-center">
+
+                            <tr>
+                                <td>User ID</td>
+                                <td>UID{{user.id}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>User Email</td>
+                                <td>{{user.email}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Phone</td>
+                                <td>{{user.phone}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Role</td>
+                                <td>{{user.authorities[0].authority}}</td>
+                            </tr>
+
+                            <tr>
+                                <td>Status</td>
+                                <td>{{user.enabled?"ACTIVE":"INACTIVE"}}</td>
+                            </tr>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </mat-card-content>
+
+    <mat-card-actions class="text-center">
+
+        <button mat-raised-button color="primary">EDIT</button>
+        <button mat-raised-button color="danger">DELETE ACCOUNT</button>
+
+    </mat-card-actions>
+
+</mat-card>
