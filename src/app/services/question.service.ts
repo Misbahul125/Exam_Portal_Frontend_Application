@@ -19,6 +19,14 @@ export class QuestionService {
     return this.httpClient.get(`${baseUrl}/question/quiz/all/${quizId}`);
   }
 
+  public getQuestion(questionId: number) {
+    return this.httpClient.get(`${baseUrl}/question/${questionId}`);
+  }
+
+  public updateQuestionOfQuiz(question: any) {
+    return this.httpClient.put(`${baseUrl}/question/`, question);
+  }
+
   public deleteQuestion(questionId: number) {
     return this.httpClient.delete(`${baseUrl}/question/${questionId}`);
   }

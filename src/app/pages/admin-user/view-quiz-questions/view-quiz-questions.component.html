@@ -57,7 +57,7 @@
                 <mat-card-actions>
 
                     <div class="container text-center">
-                        <button mat-flat-button color="primary">Edit</button>
+                        <button [routerLink]="'/admin/update-question/'+quizId+'/'+quizTitle+'/'+q.quesId" mat-flat-button color="primary">Edit</button>
                         <button class="margin-left-20" (click)="deleteQuestion(q.quesId)" mat-flat-button color="warn">Delete</button>
                     </div>
 

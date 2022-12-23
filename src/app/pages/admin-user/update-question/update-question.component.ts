@@ -5,25 +5,16 @@ import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-add-question',
-  templateUrl: './add-question.component.html',
-  styleUrls: ['./add-question.component.css']
+  selector: 'app-update-question',
+  templateUrl: './update-question.component.html',
+  styleUrls: ['./update-question.component.css']
 })
-export class AddQuestionComponent implements OnInit {
+export class UpdateQuestionComponent implements OnInit {
 
   quizId: any;
   quizTitle: any;
-  question= {
-    quiz: {
-      qId: '',
-    },
-    content: '',
-    option1: '',
-    option2: '',
-    option3: '',
-    option4: '',
-    answer: '',
-  };
+  questionId: any;
+  question: any;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -33,43 +24,53 @@ export class AddQuestionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.quizId = this.activatedRoute.snapshot.params['quizId'];
+    this.questionId = this.activatedRoute.snapshot.params['questionId'];
     this.quizTitle = this.activatedRoute.snapshot.params['quizTitle'];
-    console.log(this.quizId);
+    this.quizId = this.activatedRoute.snapshot.params['quizId'];
+    //console.log(this.questionId);
 
-    this.question.quiz['qId'] = this.quizId;
+    this.questionService.getQuestion(this.questionId).subscribe(
+      (data: any) => {
+        this.question = data;
+        console.log(this.question);
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error', 'Error in loading quiz', 'error');
+      }
+    )
   }
 
-  public addQuestionOfQuiz() {
-    console.log(this.question);
+  public updateQuestion() {
+    //console.log(this.question);
 
     if (this.question.content.trim() == '' || this.question.content == null) {
-      this.matSnackBar.open("Content required",'', {
+      this.matSnackBar.open("Content required", '', {
         duration: 3000,
       });
       return;
     }
     if (this.question.option1.trim() == '' || this.question.option1 == null) {
-      this.matSnackBar.open("Option 1 required",'', {
+      this.matSnackBar.open("Option 1 required", '', {
         duration: 3000,
       });
       return;
     }
     if (this.question.option2.trim() == '' || this.question.option2 == null) {
-      this.matSnackBar.open("Option 2 required",'', {
+      this.matSnackBar.open("Option 2 required", '', {
         duration: 3000,
       });
       return;
     }
     if (this.question.answer.trim() == '' || this.question.answer == null) {
-      this.matSnackBar.open("Please select answer",'', {
+      this.matSnackBar.open("Please select answer", '', {
         duration: 3000,
       });
       return;
     }
 
     Swal.fire({
-      title: 'Add Question',
+      title: 'Update Question',
       text: 'Are you sure?',
       icon: 'info',
       showCancelButton: true,
@@ -81,7 +82,7 @@ export class AddQuestionComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.questionService.addQuestionOfQuiz(this.question).subscribe(
+        this.questionService.updateQuestionOfQuiz(this.question).subscribe(
           (data: any) => {
             this.question.content = '';
             this.question.option1 = '';
@@ -90,19 +91,18 @@ export class AddQuestionComponent implements OnInit {
             this.question.option4 = '';
             this.question.answer = '';
             this.question.quiz.qId = '';
-            Swal.fire('Success', 'Question is added successfully', 'success').then((e) => {
-              this.router.navigate(['/admin/view-questions/'+this.quizId+'/'+this.quizTitle]);
+            Swal.fire('Success', 'Question is updated successfully', 'success').then((e) => {
+              this.router.navigate(['/admin/view-questions/' + this.quizId + '/' + this.quizTitle]);
             });
           },
           (error) => {
             console.log(error);
-            Swal.fire('Error', 'Unable to added quiz', 'error');
+            Swal.fire('Error', 'Unable to update question', 'error');
           }
         )
 
       }
     });
-
 
   }
 
