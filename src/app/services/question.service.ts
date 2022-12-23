@@ -11,6 +11,10 @@ export class QuestionService {
     private httpClient: HttpClient,
   ) { }
 
+  public addQuestionOfQuiz(question: any) {
+    return this.httpClient.post(`${baseUrl}/question/`, question);
+  }
+
   public getAllQuestionsOfQuiz(quizId: number) {
     return this.httpClient.get(`${baseUrl}/question/quiz/all/${quizId}`);
   }
