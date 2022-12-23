@@ -23,7 +23,7 @@
 
                     <div class="container text-center">
                         <button [routerLink]="'/admin/update-category/'+c.cid" mat-flat-button color="primary">Edit</button>
-                        <button class="margin-left-20" (click)="deleteCategory(c.cid)" mat-flat-button color="warn">Delete</button>
+                        <button class="margin-left-20" (click)="deleteCategory(c.cid,c.title)" mat-flat-button color="warn">Delete</button>
                     </div>
 
                 </mat-card-actions>

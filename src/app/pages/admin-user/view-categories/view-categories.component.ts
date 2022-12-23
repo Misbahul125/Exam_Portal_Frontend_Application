@@ -9,7 +9,7 @@ import Swal from 'sweetalert2';
 })
 export class ViewCategoriesComponent implements OnInit {
 
-categories: any;
+  categories: any;
 
   constructor(private categoryService: CategoryService) { }
 
@@ -21,13 +21,40 @@ categories: any;
       },
       (error) => {
         console.log(error);
-        Swal.fire("Error !!", "Something went wrong. Please try again later.",'error');
+        Swal.fire("Error !!", "Something went wrong. Please try again later.", 'error');
       }
     )
   }
 
-  public deleteCategory(categoryId: number) {
-    console.log(categoryId);
+  public deleteCategory(categoryId: number, categoryTitle: string) {
+    //console.log(categoryId);
+
+    Swal.fire({
+      title: 'Delete Category - '+categoryTitle,
+      text: 'Are you sure?',
+      icon: 'info',
+      showCancelButton: true,
+      //cancelButtonColor: red,
+      focusConfirm: false,
+      confirmButtonColor: 'red',
+      confirmButtonText: 'YES',
+      cancelButtonText: 'NO',
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.categoryService.deleteCategory(categoryId).subscribe(
+          (data: any) => {
+            this.categories = this.categories.filter((category: any) => category.cid != categoryId);
+            Swal.fire('Success', 'Category is deleted successfully', 'success');
+          },
+          (error) => {
+            console.log(error);
+            Swal.fire('Error', 'Unable to delete category', 'error');
+          }
+        )
+
+      }
+    });
   }
 
 }
