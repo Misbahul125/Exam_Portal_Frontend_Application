@@ -31,7 +31,7 @@ export class UpdateCategoryComponent implements OnInit {
     this.categoryService.getCategory(this.categoryId).subscribe(
       (data: any) => {
         this.category = data;
-        console.log(this.category);
+        //console.log(this.category);
       },
       (error) => {
         console.log(error);

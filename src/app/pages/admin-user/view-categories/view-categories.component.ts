@@ -17,7 +17,7 @@ export class ViewCategoriesComponent implements OnInit {
     this.categoryService.getAllCategories().subscribe(
       (data: any) => {
         this.categories = data;
-        console.log(this.categories);
+        //console.log(this.categories);
       },
       (error) => {
         console.log(error);

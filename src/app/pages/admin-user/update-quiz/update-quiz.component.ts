@@ -31,12 +31,12 @@ export class UpdateQuizComponent implements OnInit {
     this.quizService.getQuiz(this.qId).subscribe(
       (data: any) => {
         this.quiz = data;
-        console.log(this.quiz);
+        //console.log(this.quiz);
 
         this.categoryService.getAllCategories().subscribe(
           (data: any) => {
             this.categories = data;
-            console.log(this.categories);
+            //console.log(this.categories);
           },
           (error) => {
             console.log(error);

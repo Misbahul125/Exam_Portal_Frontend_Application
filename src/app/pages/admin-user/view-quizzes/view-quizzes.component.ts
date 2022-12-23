@@ -11,13 +11,15 @@ export class ViewQuizzesComponent implements OnInit {
 
   quizzes: any;
 
-  constructor(private quizService: QuizService) { }
+  constructor(
+    private quizService: QuizService,
+    ) { }
 
   ngOnInit(): void {
     this.quizService.getQuizzes().subscribe(
       (data: any) => {
         this.quizzes = data;
-        console.log(this.quizzes);
+        //console.log(this.quizzes);
       },
       (error) => {
         console.log(error);

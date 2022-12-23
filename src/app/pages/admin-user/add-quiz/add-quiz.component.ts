@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { CategoryService } from 'src/app/services/category.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
@@ -24,13 +25,18 @@ export class AddQuizComponent implements OnInit {
     },
   };
 
-  constructor(private categoryService: CategoryService, private quizService: QuizService, private matSnackBar: MatSnackBar) { }
+  constructor(
+    private categoryService: CategoryService, 
+    private quizService: QuizService, 
+    private matSnackBar: MatSnackBar,
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe(
       (data: any) => {
         this.categories = data;
-        console.log(this.categories);
+        //console.log(this.categories);
       },
       (error) => {
         console.log(error);
@@ -74,20 +80,38 @@ export class AddQuizComponent implements OnInit {
       return;
     }
 
-    this.quizService.addQuiz(this.quiz).subscribe(
-      (data: any) => {
-        this.quiz.title='';
-        this.quiz.description='';
-        this.quiz.maxMarks='';
-        this.quiz.numberOfQuestions='';
-        this.quiz.category.cid= '';
-        Swal.fire('Success', 'Quiz is added successfully', 'success');
-      },
-      (error) => {
-        console.log(error);
-        Swal.fire('Error', 'Unable to add quiz', 'error');
+    Swal.fire({
+      title: 'Add Quiz',
+      text: 'Are you sure?',
+      icon: 'info',
+      showCancelButton: true,
+      //cancelButtonColor: red,
+      focusConfirm: false,
+      confirmButtonColor: 'red',
+      confirmButtonText: 'YES',
+      cancelButtonText: 'NO',
+    }).then((result) => {
+      if (result.isConfirmed) {
+
+        this.quizService.addQuiz(this.quiz).subscribe(
+          (data: any) => {
+            this.quiz.title = '';
+            this.quiz.description = '';
+            this.quiz.maxMarks = '';
+            this.quiz.numberOfQuestions = '';
+            this.quiz.category.cid = '';
+            Swal.fire('Success', 'Quiz is added successfully', 'success').then((e) => {
+              this.router.navigate(['/admin/quizzes']);
+            });
+          },
+          (error) => {
+            console.log(error);
+            Swal.fire('Error', 'Unable to add quiz', 'error');
+          }
+        )
+
       }
-    )
+    });
 
   }
 
