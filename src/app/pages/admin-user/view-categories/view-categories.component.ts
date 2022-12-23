@@ -14,7 +14,7 @@ categories: any;
   constructor(private categoryService: CategoryService) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe(
+    this.categoryService.getAllCategories().subscribe(
       (data: any) => {
         this.categories = data;
         console.log(this.categories);
@@ -24,6 +24,10 @@ categories: any;
         Swal.fire("Error !!", "Something went wrong. Please try again later.",'error');
       }
     )
+  }
+
+  public deleteCategory(categoryId: number) {
+    console.log(categoryId);
   }
 
 }

@@ -1,22 +1,37 @@
-<mat-card>
+<div class="margin-top-20 margin-bottom-20">
+    <button class="width-100" [routerLink]="'/admin/add-category'" mat-raised-button color="primary">AddCategory</button>
+</div>
 
-    <h1>All Categories</h1>
+<div class="bootstrap-wrapper">
 
-    <mat-list>
+    <div class="row">
 
-        <mat-list-item *ngFor="let c of categories">
+        <div class="col-md-12">
 
-            <mat-icon mat-list-icon>category</mat-icon>
+            <h1>All Categories</h1>
 
-            <div mat-line>{{c.title}}</div>
-            <div mat-line>{{c.description}}</div>
+            <mat-card class="margin-top-10" *ngFor="let c of categories">
 
-        </mat-list-item>
+                <mat-card-header>
 
-    </mat-list>
+                    <mat-card-title>{{c.title}}</mat-card-title>
+                    <mat-card-subtitle>{{c.description}}</mat-card-subtitle>
 
-    <div class="container text-center margin-top-20">
-        <button routerLink="/admin/add-category" mat-raised-button color="primary">Add New Category</button>
+                </mat-card-header>
+
+                <mat-card-actions>
+
+                    <div class="container text-center">
+                        <button [routerLink]="'/admin/update-category/'+c.cid" mat-flat-button color="primary">Edit</button>
+                        <button class="margin-left-20" (click)="deleteCategory(c.cid)" mat-flat-button color="warn">Delete</button>
+                    </div>
+
+                </mat-card-actions>
+
+            </mat-card>
+
+        </div>
+
     </div>
 
-</mat-card>
+</div>

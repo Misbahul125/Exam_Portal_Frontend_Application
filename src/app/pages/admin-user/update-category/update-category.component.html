@@ -1,0 +1,39 @@
+<mat-card>
+
+    <h1>Update Existing Category</h1>
+
+    <mat-card-content>
+
+        <div class="bootstrap-wrapper">
+            <div class="row">
+
+                <div class="col-md-8 offset-md-2">
+
+                    <form (ngSubmit)="updateCategory()">
+
+                        <mat-form-field class="width-100" appearance="outline">
+                            <mat-label>Title</mat-label>
+                            <input type="text" name="title" matInput placeholder="Enter title" autofocus 
+                            [(ngModel)]="category.title">
+                        </mat-form-field> 
+
+                        <mat-form-field class="width-100" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea name="description" matInput rows="15" placeholder="Enter description"
+                            [(ngModel)]="category.description"></textarea>
+                        </mat-form-field>
+
+                        <div class="container text-center margin-top-15">
+                            <button mat-raised-button color="primary">Add</button>
+                        </div>
+
+                    </form>
+
+                </div>
+
+            </div>
+        </div>
+
+    </mat-card-content>
+
+</mat-card>

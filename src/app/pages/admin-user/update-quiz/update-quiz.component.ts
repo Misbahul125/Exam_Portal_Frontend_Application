@@ -33,7 +33,7 @@ export class UpdateQuizComponent implements OnInit {
         this.quiz = data;
         console.log(this.quiz);
 
-        this.categoryService.getCategories().subscribe(
+        this.categoryService.getAllCategories().subscribe(
           (data: any) => {
             this.categories = data;
             console.log(this.categories);

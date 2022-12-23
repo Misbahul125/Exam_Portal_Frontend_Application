@@ -13,8 +13,20 @@ export class CategoryService {
     return this.httpClient.post(`${baseUrl}/category/`, category);
   }
 
-  public getCategories() {
+  public getAllCategories() {
     return this.httpClient.get(`${baseUrl}/category/`);
+  }
+
+  public getCategory(categoryId: number) {
+    return this.httpClient.get(`${baseUrl}/category/${categoryId}`);
+  }
+
+  public updateCategory(category: any) {
+    return this.httpClient.put(`${baseUrl}/category/`, category);
+  }
+
+  public deleteCategory(categoryId: number) {
+    return this.httpClient.delete(`${baseUrl}/category/${categoryId}`);
   }
 
 }
