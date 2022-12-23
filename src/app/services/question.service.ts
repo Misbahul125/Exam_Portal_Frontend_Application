@@ -19,4 +19,8 @@ export class QuestionService {
     return this.httpClient.get(`${baseUrl}/question/quiz/all/${quizId}`);
   }
 
+  public deleteQuestion(questionId: number) {
+    return this.httpClient.delete(`${baseUrl}/question/${questionId}`);
+  }
+
 }
