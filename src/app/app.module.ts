@@ -35,6 +35,7 @@ import { ViewQuizzesComponent } from './pages/admin-user/view-quizzes/view-quizz
 import { AddQuizComponent } from './pages/admin-user/add-quiz/add-quiz.component';
 import { UpdateQuizComponent } from './pages/admin-user/update-quiz/update-quiz.component';
 import { ViewQuizQuestionsComponent } from './pages/admin-user/view-quiz-questions/view-quiz-questions.component';
+import { AddQuestionComponent } from './pages/admin-user/add-question/add-question.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { ViewQuizQuestionsComponent } from './pages/admin-user/view-quiz-questio
     ViewQuizzesComponent,
     AddQuizComponent,
     UpdateQuizComponent,
-    ViewQuizQuestionsComponent
+    ViewQuizQuestionsComponent,
+    AddQuestionComponent
   ],
   imports: [
     BrowserModule,
