@@ -89,7 +89,7 @@ export class UpdateQuizComponent implements OnInit {
     }
 
     Swal.fire({
-      title: 'Update Quiz',
+      title: 'Update Quiz - '+this.quiz.title,
       text: 'Are you sure?',
       icon: 'info',
       showCancelButton: true,

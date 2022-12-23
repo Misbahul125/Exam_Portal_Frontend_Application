@@ -32,11 +32,11 @@ export class UpdateQuestionComponent implements OnInit {
     this.questionService.getQuestion(this.questionId).subscribe(
       (data: any) => {
         this.question = data;
-        console.log(this.question);
+        //console.log(this.question);
       },
       (error) => {
         console.log(error);
-        Swal.fire('Error', 'Error in loading quiz', 'error');
+        Swal.fire('Error', 'Error in loading quiz question', 'error');
       }
     )
   }
