@@ -40,6 +40,7 @@ import { UpdateQuestionComponent } from './pages/admin-user/update-question/upda
 import { UpdateCategoryComponent } from './pages/admin-user/update-category/update-category.component';
 
 import { SidebarComponent as NormalSidebarComponent } from './pages/normal-user/sidebar/sidebar.component';
+import { NormalViewAllQuizzesComponent } from './pages/normal-user/normal-view-all-quizzes/normal-view-all-quizzes.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { SidebarComponent as NormalSidebarComponent } from './pages/normal-user/
     AddQuestionComponent,
     UpdateQuestionComponent,
     UpdateCategoryComponent,
-    NormalSidebarComponent
+    NormalSidebarComponent,
+    NormalViewAllQuizzesComponent,
   ],
   imports: [
     BrowserModule,
