@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   }
 
   userLogin() {
-    console.log("login")
+    //console.log("login")
 
 
     if(this.loginData.username.trim() == '' || this.loginData.username == null) {
@@ -59,8 +59,8 @@ export class LoginComponent implements OnInit {
     //send request server to generate token
     this.loginService.generateToken(this.loginData).subscribe(
       (data: any) => {
-        console.log("Access token generated");
-        console.log(data);
+        //console.log("Access token generated");
+        //console.log(data);
 
         //save generated token in local storage
         this.loginService.saveToken(data.token);
@@ -70,8 +70,8 @@ export class LoginComponent implements OnInit {
             //save user details in local storage
             this.loginService.setUser(user);
 
-            console.log("Current user");
-            console.log(user);
+            //console.log("Current user");
+            //console.log(user);
 
 
             //check if user is admin/normal

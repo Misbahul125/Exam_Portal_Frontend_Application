@@ -109,7 +109,7 @@ export class SignupComponent implements OnInit {
     //signUp() from user_service
     this.userService.createUser(this.user).subscribe(
       (data: any) => {
-        console.log(data);
+        //console.log(data);
         //alert('SignUp successful');
         // this.matSnackBar.open('SignUp successful !!' , 'OK' , {
         //   duration: 3000,

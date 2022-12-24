@@ -39,6 +39,8 @@ import { AddQuestionComponent } from './pages/admin-user/add-question/add-questi
 import { UpdateQuestionComponent } from './pages/admin-user/update-question/update-question.component';
 import { UpdateCategoryComponent } from './pages/admin-user/update-category/update-category.component';
 
+import { SidebarComponent as NormalSidebarComponent } from './pages/normal-user/sidebar/sidebar.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -60,7 +62,8 @@ import { UpdateCategoryComponent } from './pages/admin-user/update-category/upda
     ViewQuizQuestionsComponent,
     AddQuestionComponent,
     UpdateQuestionComponent,
-    UpdateCategoryComponent
+    UpdateCategoryComponent,
+    NormalSidebarComponent
   ],
   imports: [
     BrowserModule,

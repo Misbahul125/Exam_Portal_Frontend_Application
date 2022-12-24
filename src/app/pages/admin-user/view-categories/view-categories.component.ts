@@ -11,7 +11,9 @@ export class ViewCategoriesComponent implements OnInit {
 
   categories: any;
 
-  constructor(private categoryService: CategoryService) { }
+  constructor(
+    private categoryService: CategoryService,
+    ) { }
 
   ngOnInit(): void {
     this.categoryService.getAllCategories().subscribe(

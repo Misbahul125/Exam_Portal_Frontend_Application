@@ -1,0 +1,23 @@
+<mat-card>
+
+    <mat-action-list>
+
+        <div mat-subheader>General</div>
+
+        <button mat-list-item routerLink="/user">
+            <mat-icon mat-list-icon>home</mat-icon>
+            Home
+        </button>
+
+        <button mat-list-item><mat-icon>quiz</mat-icon>View All Quiz</button>
+
+        <div mat-subheader>Categories</div>
+
+        <button mat-list-item *ngFor="let c of categories">
+            <mat-icon mat-list-icon>list</mat-icon>
+            {{c.title}}
+        </button>
+
+    </mat-action-list>
+
+</mat-card>
