@@ -13,6 +13,7 @@ import { ViewQuizzesComponent } from './pages/admin-user/view-quizzes/view-quizz
 import { WelcomeComponent } from './pages/admin-user/welcome/welcome.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
+import { InstructionsComponent } from './pages/normal-user/instructions/instructions.component';
 import { NormalDashboardComponent } from './pages/normal-user/normal-dashboard/normal-dashboard.component';
 import { NormalViewAllQuizzesComponent } from './pages/normal-user/normal-view-all-quizzes/normal-view-all-quizzes.component';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -100,6 +101,10 @@ const routes: Routes = [
       {
         path: ':categoryId',
         component: NormalViewAllQuizzesComponent,
+      },
+      {
+        path: 'quiz/instructions/:quizId',
+        component: InstructionsComponent,
       },
     ]
   },
