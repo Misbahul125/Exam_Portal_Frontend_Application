@@ -17,16 +17,20 @@ export class QuizService {
     return this.httpClient.get(`${baseUrl}/quiz/${quizId}`);
   }
 
-public getQuizzes() {
-  return this.httpClient.get(`${baseUrl}/quiz/`);
-}
+  public getQuizzes() {
+    return this.httpClient.get(`${baseUrl}/quiz/`);
+  }
 
-public updateQuiz(quiz: any) {
-  return this.httpClient.put(`${baseUrl}/quiz/`, quiz);
-}
+  public getQuizzesOfCategory(categoryId: number) {
+    return this.httpClient.get(`${baseUrl}/quiz/category/${categoryId}`);
+  }
 
-public deleteQuiz(qId: number) {
-  return this.httpClient.delete(`${baseUrl}/quiz/${qId}`);
-}
+  public updateQuiz(quiz: any) {
+    return this.httpClient.put(`${baseUrl}/quiz/`, quiz);
+  }
+
+  public deleteQuiz(qId: number) {
+    return this.httpClient.delete(`${baseUrl}/quiz/${qId}`);
+  }
 
 }

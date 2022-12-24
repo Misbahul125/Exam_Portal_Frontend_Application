@@ -19,15 +19,15 @@ export class NormalViewAllQuizzesComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.categoryId = this.activatedRoute.snapshot.params['categoryId'];
-    console.log(this.categoryId);
-
+    this.activatedRoute.params.subscribe((parama) => {
+    this.categoryId = this.activatedRoute.snapshot.params['categoryId'];  
+      
     if (this.categoryId == 0) {
       //view all quiz
       this.quizService.getQuizzes().subscribe(
         (data: any) => {
           this.quizzes = data;
-          console.log(this.quizzes);
+          //console.log(this.quizzes);
         },
         (error) => {
           console.log(error);
@@ -38,7 +38,19 @@ export class NormalViewAllQuizzesComponent implements OnInit {
     }
     else {
       //view single quiz
+      this.quizService.getQuizzesOfCategory(this.categoryId).subscribe(
+        (data: any) => {
+          this.quizzes = data;
+          //console.log(this.quizzes);
+        },
+        (error) => {
+          console.log(error);
+          Swal.fire('Error', 'Error in loading quiz', 'error');
+        }
+      )
     }
+
+    });
 
   }
 
