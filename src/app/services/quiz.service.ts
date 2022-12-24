@@ -21,8 +21,16 @@ export class QuizService {
     return this.httpClient.get(`${baseUrl}/quiz/`);
   }
 
+  public getActiveQuizzes() {
+    return this.httpClient.get(`${baseUrl}/quiz/active`);
+  }
+
   public getQuizzesOfCategory(categoryId: number) {
     return this.httpClient.get(`${baseUrl}/quiz/category/${categoryId}`);
+  }
+
+  public getActiveQuizzesOfCategory(categoryId: number) {
+    return this.httpClient.get(`${baseUrl}/quiz/active/category/${categoryId}`);
   }
 
   public updateQuiz(quiz: any) {

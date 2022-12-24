@@ -24,7 +24,7 @@ export class NormalViewAllQuizzesComponent implements OnInit {
       
     if (this.categoryId == 0) {
       //view all quiz
-      this.quizService.getQuizzes().subscribe(
+      this.quizService.getActiveQuizzes().subscribe(
         (data: any) => {
           this.quizzes = data;
           //console.log(this.quizzes);
@@ -38,7 +38,7 @@ export class NormalViewAllQuizzesComponent implements OnInit {
     }
     else {
       //view single quiz
-      this.quizService.getQuizzesOfCategory(this.categoryId).subscribe(
+      this.quizService.getActiveQuizzesOfCategory(this.categoryId).subscribe(
         (data: any) => {
           this.quizzes = data;
           //console.log(this.quizzes);
