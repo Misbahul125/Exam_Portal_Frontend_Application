@@ -51,8 +51,6 @@ export class StartQuizComponent implements OnInit {
 
         this.timer = this.questions.length * 2 * 60;
 
-        console.log(this.questions);
-
         this.operateTimer();
 
       },
@@ -117,7 +115,7 @@ export class StartQuizComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-
+        Swal.fire("Error !!", "Something went wrong. Please try again later.", 'error');
       }
     );
   }

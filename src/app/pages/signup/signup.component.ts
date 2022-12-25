@@ -103,7 +103,7 @@ export class SignupComponent implements OnInit {
       //check if contact number doesn't contain 'e'
     }
 
-    console.log(this.user);
+    //console.log(this.user);
     
 
     //signUp() from user_service

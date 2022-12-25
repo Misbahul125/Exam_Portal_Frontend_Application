@@ -35,13 +35,12 @@ export class AddQuestionComponent implements OnInit {
   ngOnInit(): void {
     this.quizId = this.activatedRoute.snapshot.params['quizId'];
     this.quizTitle = this.activatedRoute.snapshot.params['quizTitle'];
-    console.log(this.quizId);
 
     this.question.quiz['qId'] = this.quizId;
   }
 
   public addQuestionOfQuiz() {
-    console.log(this.question);
+    //console.log(this.question);
 
     if (this.question.content.trim() == '' || this.question.content == null) {
       this.matSnackBar.open("Content required",'', {
@@ -96,7 +95,7 @@ export class AddQuestionComponent implements OnInit {
           },
           (error) => {
             console.log(error);
-            Swal.fire('Error', 'Unable to added quiz', 'error');
+            Swal.fire('Error', 'Unable to add quiz', 'error');
           }
         )
 
