@@ -20,6 +20,8 @@ export class StartQuizComponent implements OnInit {
 
   isSubmitted = false;
 
+  timer: any;
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private locationStrategy: LocationStrategy,
@@ -53,7 +55,11 @@ export class StartQuizComponent implements OnInit {
           q['givenAnswer'] = '';
         });
 
+        this.timer = this.questions.length * 2 * 60;
+
         console.log(this.questions);
+
+        this.operateTimer();
 
       },
       (error) => {
@@ -80,29 +86,52 @@ export class StartQuizComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
 
-        this.isSubmitted = true;
-
-        let singleQuestionMark = this.questions[0].quiz.maxMarks/this.questions.length;
-        
-        this.questions.forEach((question:any) => {
-
-          if(question.givenAnswer == question.answer) {
-            this.correctAnswers++;
-            this.marksObtained += singleQuestionMark;
-          }
-
-          if(question.givenAnswer.trim() != '' && question.givenAnswer != null)
-          this.questionsAttempted++;
-
-        });
-
-        console.log('Correct answer: '+this.correctAnswers);
-        console.log('Marks Obtained: '+this.marksObtained);
-        console.log('Attempted: '+this.questionsAttempted);
+        this.evaluateQuiz();
 
       }
     });
 
+  }
+
+  operateTimer() {
+    let t = window.setInterval(() => {
+      if (this.timer <= 0) {
+        this.submitQuiz();
+        clearInterval(t);
+      }
+      else {
+        this.timer--;
+      }
+    }, 1000);
+  }
+
+  getFormattedTime() {
+    let m = Math.floor(this.timer / 60);
+    let s = this.timer - m * 60;
+    return `${m} min : ${s} sec`;
+  }
+
+  evaluateQuiz() {
+    
+    this.isSubmitted = true;
+
+    let singleQuestionMark = this.questions[0].quiz.maxMarks / this.questions.length;
+
+    this.questions.forEach((question: any) => {
+
+      if (question.givenAnswer == question.answer) {
+        this.correctAnswers++;
+        this.marksObtained += singleQuestionMark;
+      }
+
+      if (question.givenAnswer.trim() != '' && question.givenAnswer != null)
+        this.questionsAttempted++;
+
+    });
+
+    console.log('Correct answer: ' + this.correctAnswers);
+    console.log('Marks Obtained: ' + this.marksObtained);
+    console.log('Attempted: ' + this.questionsAttempted);
   }
 
 }
