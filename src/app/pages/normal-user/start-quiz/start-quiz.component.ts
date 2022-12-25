@@ -14,9 +14,7 @@ export class StartQuizComponent implements OnInit {
   quizId: any;
   questions: any;
 
-  marksObtained = 0;
-  correctAnswers = 0;
-  questionsAttempted = 0;
+  testReport: any;
 
   isSubmitted = false;
 
@@ -50,10 +48,6 @@ export class StartQuizComponent implements OnInit {
       (data) => {
         //console.log(data);
         this.questions = data;
-
-        this.questions.forEach((q: any) => {
-          q['givenAnswer'] = '';
-        });
 
         this.timer = this.questions.length * 2 * 60;
 
@@ -113,25 +107,19 @@ export class StartQuizComponent implements OnInit {
 
   evaluateQuiz() {
 
-    this.isSubmitted = true;
+    this.questionService.evaluateQuiz(this.questions).subscribe(
 
-    let singleQuestionMark = this.questions[0].quiz.maxMarks / this.questions.length;
+      (data: any) => {
+        //console.log(data);
+        this.isSubmitted = true;
+        this.testReport = data;
 
-    this.questions.forEach((question: any) => {
+      },
+      (error) => {
+        console.log(error);
 
-      if (question.givenAnswer == question.answer) {
-        this.correctAnswers++;
-        this.marksObtained += singleQuestionMark;
       }
-
-      if (question.givenAnswer.trim() != '' && question.givenAnswer != null)
-        this.questionsAttempted++;
-
-    });
-
-    // console.log('Correct answer: ' + this.correctAnswers);
-    // console.log('Marks Obtained: ' + this.marksObtained);
-    // console.log('Attempted: ' + this.questionsAttempted);
+    );
   }
 
 }
