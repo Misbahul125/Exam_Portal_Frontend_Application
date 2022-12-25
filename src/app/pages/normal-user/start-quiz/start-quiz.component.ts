@@ -96,7 +96,7 @@ export class StartQuizComponent implements OnInit {
   operateTimer() {
     let t = window.setInterval(() => {
       if (this.timer <= 0) {
-        this.submitQuiz();
+        this.evaluateQuiz();
         clearInterval(t);
       }
       else {
@@ -112,7 +112,7 @@ export class StartQuizComponent implements OnInit {
   }
 
   evaluateQuiz() {
-    
+
     this.isSubmitted = true;
 
     let singleQuestionMark = this.questions[0].quiz.maxMarks / this.questions.length;
@@ -129,9 +129,9 @@ export class StartQuizComponent implements OnInit {
 
     });
 
-    console.log('Correct answer: ' + this.correctAnswers);
-    console.log('Marks Obtained: ' + this.marksObtained);
-    console.log('Attempted: ' + this.questionsAttempted);
+    // console.log('Correct answer: ' + this.correctAnswers);
+    // console.log('Marks Obtained: ' + this.marksObtained);
+    // console.log('Attempted: ' + this.questionsAttempted);
   }
 
 }
