@@ -35,4 +35,8 @@ export class QuestionService {
     return this.httpClient.delete(`${baseUrl}/question/${questionId}`);
   }
 
+  public evaluateQuiz(questions: any) {
+    return this.httpClient.post(`${baseUrl}/question/evaluate-quiz`, questions);
+  }
+
 }
