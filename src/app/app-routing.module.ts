@@ -16,6 +16,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { InstructionsComponent } from './pages/normal-user/instructions/instructions.component';
 import { NormalDashboardComponent } from './pages/normal-user/normal-dashboard/normal-dashboard.component';
 import { NormalViewAllQuizzesComponent } from './pages/normal-user/normal-view-all-quizzes/normal-view-all-quizzes.component';
+import { StartQuizComponent } from './pages/normal-user/start-quiz/start-quiz.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { AdminGuard } from './services/admin.guard';
@@ -107,6 +108,11 @@ const routes: Routes = [
         component: InstructionsComponent,
       },
     ]
+  },
+  {
+    path: 'user/start/quiz/:quizId',
+    component: StartQuizComponent,
+    canActivate: [NormalGuard],
   },
 
 ];

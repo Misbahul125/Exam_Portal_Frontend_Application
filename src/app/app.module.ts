@@ -17,6 +17,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import {MatRadioModule} from '@angular/material/radio';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -42,6 +43,7 @@ import { UpdateCategoryComponent } from './pages/admin-user/update-category/upda
 import { SidebarComponent as NormalSidebarComponent } from './pages/normal-user/sidebar/sidebar.component';
 import { NormalViewAllQuizzesComponent } from './pages/normal-user/normal-view-all-quizzes/normal-view-all-quizzes.component';
 import { InstructionsComponent } from './pages/normal-user/instructions/instructions.component';
+import { StartQuizComponent } from './pages/normal-user/start-quiz/start-quiz.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +70,7 @@ import { InstructionsComponent } from './pages/normal-user/instructions/instruct
     NormalSidebarComponent,
     NormalViewAllQuizzesComponent,
     InstructionsComponent,
+    StartQuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -85,6 +88,7 @@ import { InstructionsComponent } from './pages/normal-user/instructions/instruct
     MatListModule,
     MatSlideToggleModule,
     MatSelectModule,
+    MatRadioModule,
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]

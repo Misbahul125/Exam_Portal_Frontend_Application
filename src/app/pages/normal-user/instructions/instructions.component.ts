@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuizService } from 'src/app/services/quiz.service';
 import Swal from 'sweetalert2';
 
@@ -16,6 +16,7 @@ export class InstructionsComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private quizService: QuizService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -33,12 +34,28 @@ export class InstructionsComponent implements OnInit {
         Swal.fire('Error', 'Error in loading quiz', 'error');
       }
     )
-    
+
   }
 
   public startQuiz() {
-    console.log('start');
-    
+    //console.log('start');
+
+    Swal.fire({
+      title: 'Start Quiz',
+      text: 'Are you ready?',
+      icon: 'info',
+      showCancelButton: true,
+      //cancelButtonColor: red,
+      focusConfirm: false,
+      confirmButtonColor: 'red',
+      confirmButtonText: 'YES',
+      cancelButtonText: 'NO',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.router.navigate(['/user/start/quiz/'+this.quizId]);
+      }
+    });
+
   }
 
 }

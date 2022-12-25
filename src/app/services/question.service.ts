@@ -19,6 +19,10 @@ export class QuestionService {
     return this.httpClient.get(`${baseUrl}/question/quiz/all/${quizId}`);
   }
 
+  public getAllowedQuestionsOfQuiz(quizId: number) {
+    return this.httpClient.get(`${baseUrl}/question/quiz/${quizId}`);
+  }
+
   public getQuestion(questionId: number) {
     return this.httpClient.get(`${baseUrl}/question/${questionId}`);
   }
