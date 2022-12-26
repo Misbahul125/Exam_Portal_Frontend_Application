@@ -45,9 +45,9 @@ export class StartQuizComponent implements OnInit {
 
   getQuestionsFOrStartingTest() {
 
-    this.questionService.getAllQuestionsOfQuiz(this.quizId).subscribe(
+    this.questionService.getAllowedQuestionsOfQuiz(this.quizId).subscribe(
       (data) => {
-        console.log(data);
+        //console.log(data);
         this.questions = data;
 
         this.timer = this.questions.length * 2 * 60;
