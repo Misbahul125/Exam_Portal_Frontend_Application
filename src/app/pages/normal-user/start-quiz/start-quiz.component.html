@@ -3,8 +3,22 @@
         <div class="row">
             <div class="col-md-2">
                 <!-- instructions -->
-                <h3>instructions</h3>
+                <mat-card style="margin-top: 70px;">
+
+                    <mat-card-content>
+
+                        <h3><b>Instructions</b></h3>
+                        <ul>
+                            <li>Please do not refresh the page.</li>
+                            <li>Do not switch the tab. You are being monitored.</li>
+                            <li>Do not minimize the window.</li>
+                        </ul>
+
+                    </mat-card-content>
+
+                </mat-card>
             </div>
+
             <div class="col-md-8">
                 <!-- questions -->
                 <ng-container *ngIf="questions">
@@ -99,12 +113,12 @@
                     <mat-card-title> Quiz Result </mat-card-title>
                 </mat-card-header>
                 <mat-card-content class="text-center">
-                    <h1>Total Marks Obtained : {{ testReport.marksObtained }}</h1>
-                    <h1>Total Correct Answers : {{ testReport.correctAnswers }}</h1>
-                    <h1>Total Questions Attempted : {{ testReport.questionsAttempted }}</h1>
+                    <h1>Total Marks Obtained : <b>{{ testReport.marksObtained }}</b></h1>
+                    <h1>Total Correct Answers : <b>{{ testReport.correctAnswers }}</b></h1>
+                    <h1>Total Questions Attempted : <b>{{ testReport.questionsAttempted }}</b></h1>
                 </mat-card-content>
                 <mat-card-actions class="text-center">
-                    <button mat-raised-button color="primary">Print</button>
+                    <button id="printPageButton" (click)="printPage()" mat-raised-button color="primary">Print</button>
                     <button mat-raised-button color="accent" [routerLink]="'/user/0'">Home</button>
                 </mat-card-actions>
             </mat-card>

@@ -1,6 +1,6 @@
 import { LocationStrategy } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { QuestionService } from 'src/app/services/question.service';
 import Swal from 'sweetalert2';
 
@@ -24,6 +24,7 @@ export class StartQuizComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private locationStrategy: LocationStrategy,
     private questionService: QuestionService,
+    private router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -46,7 +47,7 @@ export class StartQuizComponent implements OnInit {
 
     this.questionService.getAllQuestionsOfQuiz(this.quizId).subscribe(
       (data) => {
-        //console.log(data);
+        console.log(data);
         this.questions = data;
 
         this.timer = this.questions.length * 2 * 60;
@@ -115,9 +116,17 @@ export class StartQuizComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        Swal.fire("Error !!", "Something went wrong. Please try again later.", 'error');
+        Swal.fire("Error !!", "Something went wrong. Please try again later.", 'error').then((result) => {
+          if(result.isConfirmed || result.isDismissed) {
+            this.router.navigate(['user/0']);
+          }
+        })
       }
     );
+  }
+
+  printPage() {
+    window.print();
   }
 
 }
