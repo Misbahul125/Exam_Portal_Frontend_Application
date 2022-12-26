@@ -27,7 +27,7 @@ export class LoginService {
 
   //save token in local storage, login-2
   public saveToken(token: any) {
-    localStorage.setItem("token" , token);
+    localStorage.setItem('token' , token);
     // this.loginStatusSubject.next(true);
     return true;
   }
@@ -73,8 +73,8 @@ export class LoginService {
   
   //logout
   public logout() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
     return true;
   }
   
